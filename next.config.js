@@ -1,19 +1,7 @@
-module.exports = {
-    webpack: (config, options) => {
-        config.module.rules.push({
-            test: /\.(png|jpg|jepg|gif|svg)/,
-            use: [
-                {
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[contenthash].[ext]',
-                        outputPath: 'static', // /.next save path
-                        publicPath: '_next/static' // output load path
-                    },
-                },
-            ],
-        })
-
+// next.config.js
+const withImages = require('next-images')
+module.exports = withImages({
+    webpack(config, options) {
         return config
-    },
-}
+    }
+})
