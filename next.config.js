@@ -5,6 +5,10 @@ module.exports = {
             use: [
                 {
                     loader: 'file-loader',
+                    options: {
+                        outputPath: 'static',
+                        publicPath: '_next/static'
+                    },
                 },
             ],
         })
