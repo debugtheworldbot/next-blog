@@ -1,13 +1,14 @@
 module.exports = {
     webpack: (config, options) => {
         config.module.rules.push({
-            test: /\.png/,
+            test: /\.(png|jpg|jepg|gif|svg)/,
             use: [
                 {
                     loader: 'file-loader',
                     options: {
-                        outputPath: 'static',
-                        publicPath: '_next/static'
+                        name: '[name].[contenthash].[ext]',
+                        outputPath: 'static', // /.next save path
+                        publicPath: '_next/static' // output load path
                     },
                 },
             ],
