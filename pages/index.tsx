@@ -1,7 +1,7 @@
 import React from "react"
 import styles from '../styles/Home.module.css'
 import Link from "next/link";
-import test from '../assets/imgs/test.png'
+import test from "../assets/imgs/test.png"
 
 
 export default function Home() {
