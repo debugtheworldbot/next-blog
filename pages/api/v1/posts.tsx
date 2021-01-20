@@ -3,9 +3,12 @@ import {getPosts} from '../../../entity/posts'
 
 
 
-export default function handler(req:NextApiRequest, res:NextApiResponse) {
-  getPosts()
+const handler = async (req:NextApiRequest, res:NextApiResponse)=> {
+  const list = await getPosts()
+  console.log(list)
   res.statusCode = 200
   res.setHeader('Content-Type', 'application/json')
   res.end(JSON.stringify({ name: 'John Doe' }))
 }
+
+export default handler
