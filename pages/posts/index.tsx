@@ -1,14 +1,16 @@
 import React from 'react'
 import {GetStaticProps, NextPage} from 'next'
 import {getPosts} from '../../entity/posts'
+import Link from 'next/link'
 
 interface Post {
   title: string
   date: string
   fileName: string
 }
+
 interface Posts {
-  posts:Post[]
+  posts: Post[]
 }
 
 const PostIndex: NextPage<Posts> = (props) => {
@@ -16,8 +18,10 @@ const PostIndex: NextPage<Posts> = (props) => {
   return (
     <div>
       <h1>文章列表</h1>
-      {posts.map(post =><div key={post.fileName}>
-        {post.title} // {post.date}
+      {posts.map(post => <div key={post.fileName}>
+        <Link href={`/posts/${post.fileName}`}>
+          <a >{post.title} // {post.date} </a>
+        </Link>
       </div>)}
     </div>
   )
